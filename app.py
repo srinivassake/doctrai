@@ -24,7 +24,7 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 app = Flask(__name__)
-app.secret_key = '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'  # Set your secret key (or use an environment variable)
+app.secret_key = 'enter your api key'  # Set your secret key (or use an environment variable)
 
 # MongoDB setup
 client = MongoClient('mongodb://localhost:27017/')  # Replace with your MongoDB URI
