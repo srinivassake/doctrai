@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-signup h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.flash {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.login-container {
+    background-color: RGB(247, 247, 247);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 500px; /* Small rectangular box */
+}
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+#login_head{
+    font-size: 20px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    width: 150px;
+    height: auto;
+    text-align: center;
+}
+
+.divider {
+    position: fixed; /* Keeps the divider in place while scrolling */
+    top: 0;
+    left: 0;
+    width: 250px; /* Adjust width as needed */
+    height: 100%; /* Full height of the viewport */
+    background-color: burlywood; /* Divider color */
+    z-index: 1; /* Keeps it behind other content if needed */
+}
+#head{
+    font-size: 50px;
+}
+.divider {
+    background-color: rgb(43, 40, 40);
+    width: 200px;
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.divider button {
+    background-color: rgb(43, 40, 40);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 210px;
+}
+.divider button:hover {
+    background-color: rgb(92, 87, 87);
+}
+.header img{
+    width: 150px;
+    height: auto;
+    text-align: left;
+}
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.content {
+    padding: 20px;
+    text-align: center;
+}

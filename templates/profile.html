@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOCTRAI - Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-background: #ffffff;
+            --sidebar-width: 250px;
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .layout {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .divider {
+            width: var(--sidebar-width);
+            background-color: var(--card-background);
+            padding: 2rem 1rem;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .divider form {
+            width: 100%;
+        }
+
+        .divider button {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: transparent;
+            border: none;
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .divider button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .divider button i {
+            font-size: 1.25rem;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 2rem;
+        }
+
+        .header {
+            height: var(--header-height);
+            background-color: var(--card-background);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: var(--sidebar-width);
+            z-index: 100;
+        }
+
+        .header img {
+            height: 40px;
+            width: auto;
+        }
+
+        .content {
+            margin-top: var(--header-height);
+            padding: 2rem;
+        }
+
+        .profile-card {
+            background-color: var(--card-background);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .profile-info h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-info p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .profile-details {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+        }
+
+        .detail-item i {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+
+        .detail-content h3 {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-content p {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="divider">
+            <form action="{{ url_for('profile') }}" method="get">
+                <button type="submit">
+                    <i class="fas fa-home"></i>
+                    Home
+                </button>
+            </form>
+            <form action="{{ url_for('record') }}" method="get">
+                <button type="submit">
+                    <i class="fas fa-user-md"></i>
+                    Attend Patient
+                </button>
+            </form>
+            <form action="{{ url_for('pdf_table') }}" method="get">
+                <button type="submit">
+                    <i class="fas fa-file-medical"></i>
+                    View Reports
+                </button>
+            </form>
+            <form action="{{ url_for('logout') }}" method="get">
+                <button type="submit">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </form>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="DOCTRAI Logo">
+            </div>
+
+            <div class="content">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h1>{{ username }}</h1>
+                            <p>DOCTRAI User</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <div class="detail-content">
+                                <h3>Username</h3>
+                                <p>{{ username }}</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="detail-content">
+                                <h3>Email</h3>
+                                <p>{{ email }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

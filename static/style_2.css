@@ -1,0 +1,104 @@
+/* Basic layout for the page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Main layout container */
+.layout {
+    display: flex;
+    flex-direction: column; /* Stack header, divider, and content vertically */
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Header with the logo at the top */
+.header {
+    background-color: RGB(247, 247, 247); /* Dark background for header */
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    box-shadow: 0 2px 5px rgba(236, 233, 233, 0.1); /* Subtle shadow */
+    position: sticky; /* Make the header stick to the top */
+    top: 0; /* Stick to the top of the page */
+    z-index: 2; /* Ensure the header stays above other content */
+    border-bottom: 2px solid #aba8a8; /* Border below the header */
+}
+
+.header img {
+    width: 90px;
+    height: 39px;
+}
+
+/* Sidebar divider on the left side (fixed) */
+.divider {
+    position: fixed; /* Keeps the divider in place while scrolling */
+    top: 30px; /* Adjust this value to be the height of your header */
+    margin-top: 10px;
+    left: 0;
+    width: 200px; /* Sidebar width */
+    height: 100%; /* Full height of the viewport */
+    background-color: rgb(63, 61, 61); /* Dark background for the sidebar */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    z-index: 1;
+}
+
+
+/* Sidebar button styling */
+.divider button {
+    background-color: rgb(63, 61, 61);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 220px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.divider button:hover {
+    background-color: rgb(133, 132, 132);
+}
+
+/* Profile content styling */
+.content {
+    margin-left: px; /* Offset content to the right to leave space for the sidebar */
+    padding: 10px;
+    flex: 1;
+}
+.contentu {
+    margin-left: 260px; /* Offset content to the right to leave space for the sidebar */
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+}
+.content main {
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.content p {
+    font-size: 18px;
+    color: #555;
+}

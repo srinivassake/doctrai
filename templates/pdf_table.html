@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOCTRAI - Patient Reports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-background: #ffffff;
+            --sidebar-width: 250px;
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .layout {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .divider {
+            width: var(--sidebar-width);
+            background-color: var(--card-background);
+            padding: 2rem 1rem;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .divider form {
+            width: 100%;
+        }
+
+        .divider button {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: transparent;
+            border: none;
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .divider button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .divider button i {
+            font-size: 1.25rem;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 2rem;
+        }
+
+        .header {
+            height: var(--header-height);
+            background-color: var(--card-background);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: var(--sidebar-width);
+            z-index: 100;
+        }
+
+        .header img {
+            height: 40px;
+            width: auto;
+        }
+
+        .content {
+            margin-top: var(--header-height);
+            padding: 2rem;
+            max-width: 1200px;
+            margin: var(--header-height) auto 0;
+        }
+
+        .reports-card {
+            background-color: var(--card-background);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 2rem;
+        }
+
+        .reports-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .reports-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .reports-header p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .reports-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1.5rem;
+        }
+
+        .reports-table th {
+            background-color: #f1f5f9;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-color);
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .reports-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .reports-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .reports-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .report-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .report-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .report-link i {
+            font-size: 1.25rem;
+        }
+
+        .report-date {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+            font-size: 1rem;
+        }
+
+        .nav-link {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: transparent;
+            border: none;
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .nav-link i {
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="divider">
+            {% if session.get('user_type') == 'hospital' %}
+                <a href="{{ url_for('hospital_dashboard') }}" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+            {% else %}
+                <a href="{{ url_for('patient_dashboard') }}" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+            {% endif %}
+            <a href="{{ url_for('record') }}" class="nav-link">
+                <i class="fas fa-user-md"></i>
+                Attend Patient
+            </a>
+            <a href="{{ url_for('pdf_table') }}" class="nav-link">
+                <i class="fas fa-file-medical"></i>
+                View Reports
+            </a>
+            <a href="{{ url_for('logout') }}" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="DOCTRAI Logo">
+            </div>
+
+            <div class="content">
+                <div class="reports-card">
+                    <div class="reports-header">
+                        <h1>Patient Reports</h1>
+                        <p>View and download patient medical reports</p>
+                    </div>
+
+                    {% if files %}
+                        <table class="reports-table">
+                            <thead>
+                                <tr>
+                                    <th>Report</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for file in files %}
+                                <tr>
+                                    <td>
+                                        <a href="{{ file.url }}" target="_blank" class="report-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            {{ file.name }}
+                                        </a>
+                                    </td>
+                                    <td class="report-date">{{ file.date }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <div class="empty-state">
+                            <i class="fas fa-file-medical"></i>
+                            <h3>No Reports Available</h3>
+                            <p>Start recording patient consultations to generate reports</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
