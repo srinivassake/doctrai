@@ -20,7 +20,7 @@ DOCTRAI (Documentation and Optimization of Comprehensive Transcript Records with
   - OpenAI Whisper for speech-to-text
   - OpenAI GPT for conversation analysis
   - OpenAI GPT-4 for medical report generation
-- **Frontend**: HTML, CSS, JavaScript
+- **Frontend**: HTML, CSS
 - **PDF Generation**: ReportLab
 
 ## Prerequisites
@@ -99,35 +99,6 @@ doctrai/
    - Report includes symptoms, diagnosis, and prescriptions
    - Download report in PDF format
 
-## Security Features
-
-- Secure password hashing
-- Session-based authentication
-- Role-based access control
-- Environment variable protection
-- Secure file handling
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- OpenAI for providing the AI models
-- MongoDB for database services
-- Flask framework
-- All contributors and users of the project
-
-## Contact
-
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
-
-Project Link: [https://github.com/yourusername/doctrai](https://github.com/yourusername/doctrai) 
