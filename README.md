@@ -12,6 +12,20 @@ DOCTRAI (Documentation and Optimization of Comprehensive Transcript Records with
 - 🔒 **Secure Access**: Role-based access control for medical records
 - 📊 **Report Management**: Easy access to historical medical reports
 
+## Screenshots
+
+### Hospital Dashboard
+![Hospital Dashboard](screenshots/hospital-dashboard-screenshot.png)
+*Main interface for hospitals to manage patients and view reports*
+
+### Recording Interface
+![Recording Interface](screenshots/recording-interface-screenshot.png)
+*Voice recording interface for doctor-patient conversations*
+
+### Generated Report
+![Medical Report](screenshots/medical-report-screenshot.png)
+*Example of an automatically generated medical report*
+
 ## Tech Stack
 
 - **Backend**: Python Flask
